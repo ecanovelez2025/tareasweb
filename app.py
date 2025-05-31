@@ -1,10 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask
 
-app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return render_template('inicio.html')
+def crear_app():
+    app = Flask(__name__)
+
+    @app.route('/')
+    def home():
+        return "¡Hola, Flask sin entorno virtual!"
+
+    return app
 
 if __name__ == '__main__':
+    app = crear_app()
     app.run(debug=True)
